@@ -1,0 +1,31 @@
+# the following two lines give a two-line status, with the current window highlighted
+hardstatus alwayslastline
+hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%m/%d %{W}%C%A%{g}]'
+
+# huge scrollback buffer
+defscrollback 5000
+
+# no welcome message
+startup_message off
+
+# default windows
+screen -t Shell1  1 bash
+screen -t Bash1  2 bash
+screen -t Shell2  3 bash
+screen -t Bash2   4 bash
+#select 0
+#bind c screen 1 # window numbering starts at 1 not 0
+#bind 0 select 10
+
+deflogin off
+
+# navigating regions with Ctrl-arrows
+bindkey "^[[1;5D" focus left
+bindkey "^[[1;5C" focus right
+bindkey "^[[1;5A" focus up
+bindkey "^[[1;5B" focus down
+
+# switch windows with F3 (prev) and F4 (next)
+bindkey "^[OR" prev
+bindkey "^[OS" next
+
