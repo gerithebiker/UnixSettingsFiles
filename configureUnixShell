@@ -1,0 +1,21 @@
+#!/bin/bash
+mv .virc ~
+mv .screenrc ~
+mv .inputrc ~
+if [ "$(grep Geri ~/.bashrc)" == "# Updated by Geri" ]; then 
+	echo "The file .bashrc is already updated, nothing to do...."
+else
+	cat aliases >> ~/.bashrc
+fi
+mv .vim ~
+mv .ssh/id_rsa.pub ~/.ssh/
+
+if [ "$1" == "-d" ]; then
+	cd ..
+	rm -rf UnixSettingsFiles
+	if [ $? -eq 0 ]; then
+		echo "Cleanup is successfull."
+	else
+		echo "Something went wrong with the cleanup!"
+	fi
+fi
