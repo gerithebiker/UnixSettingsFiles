@@ -8,10 +8,17 @@ else
 	cat aliases >> ~/.bashrc
 fi
 mv .vim ~
-mv .ssh/id_rsa.pub ~/.ssh/
+
+if [ -e ~/.ssh ]; then
+	cat .ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+else
+	mv .ssh ~
+	mv ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+	chmod 700 ~/.ssh
+fi
 
 if [ "$1" == "-d" ]; then
-	cd ..
+	cd 
 	rm -rf UnixSettingsFiles
 	if [ $? -eq 0 ]; then
 		echo "Cleanup is successfull."
