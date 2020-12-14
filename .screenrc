@@ -1,3 +1,13 @@
+# If "/etc/utmp" is writable by screen, an appropriate record will be
+# written to this file for each window, and removed when the window is
+# terminated.  This is useful for working with "talk", "script",
+# "shutdown", "rsend", "sccs" and other similar programs that use the
+# utmp file to determine who you are. As long as screen is active on
+# your terminal, the terminal's own record is removed from the utmp
+# file. 
+# This setting sets off umtp update of /etc/umtp file.
+deflogin off
+
 # the following two lines give a two-line status, with the current window highlighted
 hardstatus alwayslastline
 hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%m/%d %{W}%C%A%{g}]'
