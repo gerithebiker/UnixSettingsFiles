@@ -19,6 +19,12 @@ else
 fi
 chmod 600 ~/.ssh/authorized_keys
 
+if [ ! -e ~/bin ]; then
+	mkdir ~/bin
+fi
+cp delhost ~/bin/delhost
+chmod 700 ~/bin/delhost
+
 if [ "$1" == "-d" ]; then
 	cd 
 	rm -rf UnixSettingsFiles
