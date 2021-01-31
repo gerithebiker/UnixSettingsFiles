@@ -1,5 +1,6 @@
 #!/bin/bash
 mv .virc ~
+ln ~/.virc ~/.vimrc # Depending on what is installed, both vi config file name could be used...
 mv .screenrc ~
 mv .inputrc ~
 if [ "$(grep Geri ~/.bashrc)" == "# Updated by Geri" ]; then 
